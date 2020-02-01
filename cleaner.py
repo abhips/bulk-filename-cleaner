@@ -1,9 +1,8 @@
 """
-    
-"""
+    program to cleanup the file names in a directory
 
-"""
-    A program to cleanup the file names in a directory
+    :copyright: 2020 Abhilash PS
+    :license: The MIT License
 """
 
 import os

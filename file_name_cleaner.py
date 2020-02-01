@@ -1,3 +1,10 @@
+"""
+    actual class which do the file name cleanup functions
+
+    :copyright: 2020 Abhilash PS
+    :license: The MIT License
+"""
+
 import os
 import shutil
 import pathlib
@@ -6,9 +13,6 @@ from helper_enums import FileNameCase
 
 
 class FileNameCleaner(object):
-    """
-        Actual class which do the file name cleanup functions
-    """
 
     def __init__(self, source_dir, target_dir):
         self._filter_words = []

@@ -1,5 +1,11 @@
-import sys
+"""
+    helper util class
 
+    :copyright: 2020 Abhilash PS
+    :license: The MIT License
+"""
+
+import sys
 
 class ScriptUtils(object):
     """

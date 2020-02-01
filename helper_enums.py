@@ -1,3 +1,10 @@
+"""
+    helper enum classes
+
+    :copyright: 2020 Abhilash PS
+    :license: The MIT License
+"""
+
 from enum import Enum, unique
 
 @unique
