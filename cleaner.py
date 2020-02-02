@@ -26,7 +26,8 @@ def run():
         script_utils_obj.talk_to_user('Enter "Exit" to exit the program.', '1.', 2)
         script_utils_obj.talk_to_user('You can give the empty response too, in that case default options will be used.', '2.', 2)
         script_utils_obj.talk_to_user('------------------------------------------------------------------------------------------')
-
+        script_utils_obj.talk_to_user("")
+        script_utils_obj.talk_to_user("")
 
         try:
             # accept the source directory path, from which the files will be accepted
@@ -47,7 +48,7 @@ def run():
 
 
             # accept the target directory path, to which the renamed files will be copied
-            target_dir_path = script_utils_obj.ask_question("Enter the target directory name [default is the 'target_dir' in the current "
+            target_dir_path = script_utils_obj.ask_question("Enter the target directory name [default is the 'target_dir' inside the current "
                                     "directory]:", '*', 1)
 
             if target_dir_path:
@@ -137,10 +138,7 @@ def run():
             script_utils_obj.talk_to_user("Filter file path is {}".format(filter_file_path), '', 4)
 
 
-            # cleaner object
-            print()
-            print(cleaner)
-            print()
+            # cleaner object calling the cleaning function
             cleaner.copy_files_and_directories()
 
         except SystemExit:
