@@ -18,16 +18,16 @@ def run():
     cleaner = FileNameCleaner(target, source)
     script_utils_obj = ScriptUtils()
 
-    while True:
+    script_utils_obj.talk_to_user("")
+    script_utils_obj.talk_to_user("")
+    script_utils_obj.talk_to_user('------------------------------------------------------------------------------------------')
+    script_utils_obj.talk_to_user('Enter "Exit" to exit the program.', '1.', 2)
+    script_utils_obj.talk_to_user('You can give the empty response too, in that case default options will be used.', '2.', 2)
+    script_utils_obj.talk_to_user('------------------------------------------------------------------------------------------')
+    script_utils_obj.talk_to_user("")
+    script_utils_obj.talk_to_user("")
 
-        script_utils_obj.talk_to_user("")
-        script_utils_obj.talk_to_user("")
-        script_utils_obj.talk_to_user('------------------------------------------------------------------------------------------')
-        script_utils_obj.talk_to_user('Enter "Exit" to exit the program.', '1.', 2)
-        script_utils_obj.talk_to_user('You can give the empty response too, in that case default options will be used.', '2.', 2)
-        script_utils_obj.talk_to_user('------------------------------------------------------------------------------------------')
-        script_utils_obj.talk_to_user("")
-        script_utils_obj.talk_to_user("")
+    while True:
 
         try:
             # accept the source directory path, from which the files will be accepted
