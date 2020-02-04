@@ -141,6 +141,9 @@ def run():
             # cleaner object calling the cleaning function
             cleaner.copy_files_and_directories()
 
+            script_utils_obj.talk_to_user("", '', 0)
+            script_utils_obj.talk_to_user("------------------------ Finished -----------------------", '', 0)
+
         except SystemExit:
             script_utils_obj.talk_to_user("Exit command detected! Exiting the program.", '', 4)
             break
