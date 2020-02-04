@@ -81,11 +81,14 @@ class FileNameCleaner(object):
         source_dir_paths = [self.__source_dir, ]
         target_dir_paths = [self.__target_dir, ]
 
+        self.__script_utils_obj.talk_to_user("")
+
         # process directory path lists and create target directories
         while len(source_dir_paths) != 0:
             src_path = source_dir_paths.pop()
             trgt_path = target_dir_paths.pop()
 
+            self.__script_utils_obj.talk_to_user("")
             self.__script_utils_obj.talk_to_user('source -- {}'.format(src_path), '', 4)
             self.__script_utils_obj.talk_to_user('target -- {}'.format(trgt_path), '', 4)
             self.__script_utils_obj.talk_to_user("")
@@ -170,8 +173,8 @@ class FileNameCleaner(object):
             new_name = new_name.title()
 
         # add the file name prefix
-        if self.__file_name_prefix:
-            new_name = self.__file_name_prefix + ' ' + name
+        if self.__file_name_prefix and not is_directory:
+            new_name = self.__file_name_prefix + ' ' + new_name
 
         # change the file name separator
         new_name = new_name.replace(',', self.__file_name_separator)
