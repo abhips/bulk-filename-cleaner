@@ -12,9 +12,11 @@ Options are
 1) `source directory` - source directory is the directory which contains the files to be worked up on, full path is requiered
 2) `target directory` - target directory is the directory to which the cleaned up files will be copied, full path is required
 3) `string case of filename` - decides the string case of the filenames. choices are lower case, upper case, and title case
-4) `file name word separator` - charactor to separate the words in the file names. Options are '_', '-' and ' '(single space) 
+4) `file name word separator` - charactor to separate the words in the file names. Options are '_', '-' and ' '(single space)
 5) `file name prefix` - a prefix can be used with the files, by default it is None
-6) `filter file path` - file names can be cleaned by removing certain words and these word can be provided in a file. This filter file contains each words in each lines. 
+6) `filter file path` - file names can be cleaned by removing certain words and these word can be provided in a file. This filter file contains each words in each lines.
+
+P.S:- `master` branch has the stable code. `development` branch has latest code
 
 ### TODO
 1) add more regex - there are lot of places where I can use regex
