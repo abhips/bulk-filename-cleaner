@@ -31,44 +31,41 @@ def run():
 
         try:
             # accept the source directory path, from which the files will be accepted
-            source_dir_path = script_utils_obj.ask_question("Enter the source directory name [default is the current directory]: ", '*', 1)
+            source_dir_path = script_utils_obj.ask_question("Enter the source directory name : ", '*', 1)
 
-            if source_dir_path:
-                file = pathlib.Path(source_dir_path)
-                if file.exists():
-                    cleaner.set__source_directory_name(source_dir_path)
-                else:
-                    source_dir_path = os.getcwd()
-                    script_utils_obj.talk_to_user("Directory does not exist, using the default option", '', 4)
-            else:
-                source_dir_path = os.getcwd()
-                script_utils_obj.talk_to_user("Empty input, using the default option", '', 4)
+            if not source_dir_path:
+                script_utils_obj.talk_to_user("Source directory path is mandatory, please provide an absolute path.", '', 4)
+                continue
 
-            script_utils_obj.talk_to_user("source directory is - {}".format(source_dir_path), '', 4)
+            file = pathlib.Path(source_dir_path)
+            if not file.exists():
+                script_utils_obj.talk_to_user("Source directory does not exist !!!", '', 4)
+                continue
+
+            cleaner.set__source_directory_name(source_dir_path)
+            script_utils_obj.talk_to_user("source directory is - '{}'".format(source_dir_path), '', 4)
 
 
             # accept the target directory path, to which the renamed files will be copied
-            target_dir_path = script_utils_obj.ask_question("Enter the target directory name [default is the 'target_dir' inside the current "
-                                    "directory]:", '*', 1)
+            target_dir_path = script_utils_obj.ask_question("Enter the target directory name [default is the 'target_dir' inside the source directory]:", '*', 1)
 
             if target_dir_path:
                 file = pathlib.Path(target_dir_path)
-                if file.exists():
-                    cleaner.set__target_directory_name(target_dir_path)
-                else:
-                    target_dir_path = os.path.join(os.getcwd(), 'target_dir')
+                if not file.exists():
+                    script_utils_obj.talk_to_user("Target directory does not exist. Creating the default target directory.", '', 4)
+                    target_dir_path = os.path.join(source_dir_path, 'target_dir')
                     directory = pathlib.Path(target_dir_path)
                     if not directory.exists():
                         os.mkdir(target_dir_path)
-                    script_utils_obj.talk_to_user("Directory does not exist, using the default option", '', 4)
             else:
-                target_dir_path = os.path.join(os.getcwd(), 'target_dir')
+                script_utils_obj.talk_to_user("Empty input, creating the default target directory.", '', 4)
+                target_dir_path = os.path.join(source_dir_path, 'target_dir')
                 directory = pathlib.Path(target_dir_path)
                 if not directory.exists():
                     os.mkdir(target_dir_path)
-                script_utils_obj.talk_to_user("Empty input, using the default option", '', 4)
 
-            script_utils_obj.talk_to_user("target directory is {}".format(target_dir_path), '', 4)
+            cleaner.set__target_directory_name(target_dir_path)
+            script_utils_obj.talk_to_user("target directory is - '{}'".format(target_dir_path), '', 4)
 
 
             # accept the input to decide if the file name should be in lower case or upper case or title case
@@ -90,7 +87,7 @@ def run():
             else:
                 script_utils_obj.talk_to_user("Empty input for file name case, using the default value", '', 4)
 
-            script_utils_obj.talk_to_user("File name case is {}".format(mapping[case_key].name), '', 4)
+            script_utils_obj.talk_to_user("File name case is - '{}'".format((mapping[case_key].name).title()), '', 4)
 
             # accept the file name seperator character
             file_name_separator = script_utils_obj.ask_question("Enter the file name word separator ['_' or '-', ' ' is the default]: ", '*', 1)
@@ -105,7 +102,7 @@ def run():
                 file_name_separator = ' '
                 script_utils_obj.talk_to_user("Empty input for file name separator, using the default value", '', 4)
 
-            script_utils_obj.talk_to_user("File name separator is '{}'".format(file_name_separator), '', 4)
+            script_utils_obj.talk_to_user("File name separator is - '{}'".format(file_name_separator), '', 4)
 
 
 
@@ -117,7 +114,7 @@ def run():
                 file_name_prefix = None
                 script_utils_obj.talk_to_user("Empty input for file name prefix, not using the file prefix.", '', 4)
 
-            script_utils_obj.talk_to_user("File name prefix is {}".format(file_name_prefix), '', 4)
+            script_utils_obj.talk_to_user("File name prefix is - '{}'".format(file_name_prefix), '', 4)
 
 
             # path to the file which contains the list of words in single line separated by comma.
@@ -135,7 +132,7 @@ def run():
                 filter_file_path = None
                 script_utils_obj.talk_to_user("Empty input, using the default option", '', 4)
 
-            script_utils_obj.talk_to_user("Filter file path is {}".format(filter_file_path), '', 4)
+            script_utils_obj.talk_to_user("Filter file path is - '{}'".format(filter_file_path), '', 4)
 
 
             # cleaner object calling the cleaning function
