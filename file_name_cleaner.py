@@ -44,9 +44,9 @@ class FileNameCleaner(object):
 
     def set__target_directory_name(self, target_dir_path):
         self.__target_dir = target_dir_path
-        file = pathlib.Path(filter_file_path)
+        file = pathlib.Path(target_dir_path)
         if not file.exists():
-            os.makedirs(filter_file_path)
+            os.makedirs(target_dir_path)
 
     def set__source_directory_name(self, source_dir_path):
         self.__source_dir = source_dir_path
