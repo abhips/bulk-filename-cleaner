@@ -17,12 +17,10 @@ def run():
     qstn_helper = QuestionHelper()
     cleaner = FileNameCleaner(input)
 
-    utils.print_out("")
-    utils.print_out('------------------------------------------------------')
-    utils.print_out('Enter "Exit" to exit the program.', '', 2)
-    utils.print_out('For empty responses default options will be used.', '', 2)
-    utils.print_out('------------------------------------------------------')
-    utils.print_out("")
+    utils.print_out('\n------------------------------------------------------------\n')
+    utils.print_out('Enter "Exit" or "CTRL+D" or "CTRL+C" to exit the program.\n', ' 1.', 1)
+    utils.print_out('For empty responses default options will be used.', ' 2.', 1)
+    utils.print_out('\n------------------------------------------------------------\n')
 
     while True:
         try:
@@ -67,29 +65,31 @@ def run():
             utils.print_out("", '', 0)
 
             # value of input
-            print('----------------------------------------------------')
+            print('----------------------------------------------------------')
             print(input)
-            print('----------------------------------------------------')
+            print('----------------------------------------------------------')
 
             # calling the cleaning function : this will cleanup the file names and copy them to the target directories
             if cleaner.cleanup():
-                utils.print_out("------------- Finished -------------", '', 0)
+                utils.print_out("------------------------- Finished -------------------------", '', 0)
                 break
 
 
         except (KeyboardInterrupt, EOFError, SystemExit) as e:
-            utils.print_out('', '', 4)
-            message = "Exit request detected! Exiting the program."
-            utils.print_out(message, '', 4)
-            utils.print_out('', '', 4)
-            utils.print_out("------------- Finished -------------", '', 0)
+
+            utils.print_out('\n', '', 4)
+            message = "Exit request detected! Exiting the program.\n"
+            utils.print_out(message, '', 2)
+            utils.print_out("------------------------- Finished -------------------------", '', 0)
+
             break
+
         except Exception as ex:
+
             utils.print_out('', '', 4)
-            message = "Unintented exception caught, #{}".format(
+            message = "Unintented exception caught, #{}\n".format(
                 type(ex).__name__)
             utils.print_out(message, '', 4)
-            utils.print_out('', '', 4)
-            utils.print_out("-------------- Something went wrong ----------------", '', 0)
-            utils.print_out('', '', 4)
+            utils.print_out("-------------- Something went wrong ----------------\n", '', 0)
+
             continue
