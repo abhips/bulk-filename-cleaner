@@ -1,18 +1,14 @@
-"""
-    program to cleanup the file names in a directory
+# """
+#     program to cleanup the file names in a directory
+#
+#     :copyright: 2020 Abhilash PS
+#     :license: The MIT License
+# """
 
-    :copyright: 2020 Abhilash PS
-    :license: The MIT License
-"""
-
-import os
-import pathlib
-
-from user_input import UserInput
-from script_utils import ScriptUtils
-from helper_enums import FileNameCase
-from question_helper import QuestionHelper
-from file_name_cleaner import FileNameCleaner
+from .user_input import UserInput
+from .script_utils import ScriptUtils
+from .question_helper import QuestionHelper
+from .file_name_cleaner import FileNameCleaner
 
 
 def run():
@@ -52,13 +48,14 @@ def run():
 
             # accept the file name seperator character
             input.file_name_separator = qstn_helper.get_file_name_seperator()
-            message = "file name case is - '{}'".format(input.file_name_case)
+            message = "file name case is - '{}'".format(input.file_name_separator)
             utils.print_out(message, '', 4)
 
             # accept the file name prefix
             input.file_name_prefix = qstn_helper.get_file_name_prefix()
-            message = "file name prefix is - '{}'".format(
-                input.file_name_prefix)
+            message = ''
+            if input.file_name_prefix:
+                message = "file name prefix is - '{}'".format(input.file_name_prefix)
             utils.print_out(message, '', 4)
 
             # path to the file which contains the list of words in single line separated by comma.
@@ -69,24 +66,30 @@ def run():
             utils.print_out(message, '', 4)
             utils.print_out("", '', 0)
 
+            # value of input
+            print('----------------------------------------------------')
+            print(input)
+            print('----------------------------------------------------')
 
             # calling the cleaning function : this will cleanup the file names and copy them to the target directories
             if cleaner.cleanup():
                 utils.print_out("------------- Finished -------------", '', 0)
                 break
 
-            utils.print_out("------- Something went wrong --------", '', 0)
 
         except (KeyboardInterrupt, EOFError, SystemExit) as e:
+            utils.print_out('', '', 4)
             message = "Exit request detected! Exiting the program."
             utils.print_out(message, '', 4)
+            utils.print_out('', '', 4)
+            utils.print_out("------------- Finished -------------", '', 0)
             break
-        except Exception:
+        except Exception as ex:
+            utils.print_out('', '', 4)
             message = "Unintented exception caught, #{}".format(
                 type(ex).__name__)
             utils.print_out(message, '', 4)
+            utils.print_out('', '', 4)
+            utils.print_out("-------------- Something went wrong ----------------", '', 0)
+            utils.print_out('', '', 4)
             continue
-
-
-if __name__ == "__main__":
-    run()
