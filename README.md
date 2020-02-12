@@ -14,7 +14,7 @@ Options are
 3) `string case of filename` - decides the string case of the filenames. choices are lower case, upper case, and title case.
 4) `file name word separator` - charactor to separate the words in the file names. Options are _ , - and " "(single space).
 5) `file name prefix` - a prefix can be used with the files, by default it is None.
-6) `filter file path` - file names can be cleaned by removing certain words and these word can be provided in a file. This filter file contains each words in each lines.
+6) `config directory path` - don't mind about now.
 
 P.S:- `master` branch has the stable code. `development` branch has latest code
 
