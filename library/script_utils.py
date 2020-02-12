@@ -7,6 +7,7 @@
 
 import re
 import sys
+import pathlib
 
 
 class ScriptUtils(object):
@@ -33,7 +34,7 @@ class ScriptUtils(object):
        function to give a formatted response to the users
     """
 
-    def talk_to_user(self, message='', start_character='', initial_space=0):
+    def print_out(self, message='', start_character='', initial_space=0):
         message = str(start_character) + ' ' * initial_space + message
         print(message)
 
@@ -57,3 +58,10 @@ class ScriptUtils(object):
         reg_pattern = character + '{2,}'
         string = re.sub(reg_pattern, character, string)
         return string
+
+    """
+        function to check if a file exists
+    """
+    def does_file_or_dir_exist(self, file_path):
+        file = pathlib.Path(file_path)
+        return file.exists()
