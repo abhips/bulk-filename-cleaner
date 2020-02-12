@@ -1,8 +1,8 @@
 
 import os
 
-from script_utils import ScriptUtils
-from helper_enums import FileNameCase
+from .script_utils import ScriptUtils
+from .helper_enums import FileNameCase
 
 
 class QuestionHelper(object):
@@ -86,7 +86,7 @@ class QuestionHelper(object):
         if not prefix:
             self.__utils.print_out(
                 "Empty input for file name prefix, won't be using any file prefix.", '', 4)
-            prefix = None
+            prefix = ''
 
         return prefix
 
