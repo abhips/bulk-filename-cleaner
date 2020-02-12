@@ -19,6 +19,7 @@ Options are
 P.S:- `master` branch has the stable code. `development` branch has latest code
 
 ### TODO
+0) Test more in windows
 1) add more regex - there are lot of places where I can use regex.
 2) add more comments.
 3) conevrt repeatedly used code to snippets and functions and logically group them to module.
