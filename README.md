@@ -22,7 +22,7 @@ P.S:- `master` branch has the stable code. `development` branch has latest code
 0) Test more in windows
 1) add more regex - there are lot of places where I can use regex.
 2) add more comments.
-3) conevrt repeatedly used code to snippets and functions and logically group them to module.
+3) Partially done - conevrt repeatedly used code to snippets and functions and logically group them to module.
 4) update README.md for more clarity.
 5) update the script to accept the commandline arguments and run it as a terminal command.
-6) optimize and simplify the code.
+6) Partially done - optimize and simplify the code.
