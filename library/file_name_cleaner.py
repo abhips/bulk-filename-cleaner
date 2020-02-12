@@ -45,13 +45,6 @@ class FileNameCleaner(object):
             src_path = source_dir_paths.pop()
             trgt_path = target_dir_paths.pop()
 
-            self.__utils.print_out("")
-            self.__utils.print_out(
-                'source -- {}'.format(src_path), '', 4)
-            self.__utils.print_out(
-                'target -- {}'.format(trgt_path), '', 4)
-            self.__utils.print_out("")
-
             # initialize lists to hold filenames and directory names for the current directory
             dir_names = []
             file_names = []
