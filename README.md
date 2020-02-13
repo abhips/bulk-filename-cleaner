@@ -14,9 +14,9 @@ Options are
 3) `string case of filename` - decides the string case of the filenames. choices are lower case, upper case, and title case.
 4) `file name word separator` - charactor to separate the words in the file names. Options are _ , - and " "(single space).
 5) `file name prefix` - a prefix can be used with the files, by default it is None.
-6) `config directory path` - don't mind about now.
+6) `config directory path` - don't mind about it now.
 
-P.S:- `master` branch has the stable code. `development` branch has latest code
+P.S:- `master` branch has the stable code. `development` branch has latest but unstable code
 
 ### TODO
 0) Do more testing for Windows
